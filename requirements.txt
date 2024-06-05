@@ -1,0 +1,2 @@
+Flask==2.0.1
+speedtest-cli==2.1.3

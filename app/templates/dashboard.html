@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1>Network Monitoring Dashboard</h1>
+    <div class="data-container">
+        {% if data %}
+            <div class="data-item">
+                <strong>Network Name:</strong>
+                <span>{{ data.network_name }}</span>
+            </div>
+            <div class="data-item">
+                <strong>Download Speed:</strong>
+                <span>{{ data.download_speed }} Mbps</span>
+            </div>
+            <div class="data-item">
+                <strong>Upload Speed:</strong>
+                <span>{{ data.upload_speed }} Mbps</span>
+            </div>
+            <div class="data-item">
+                <strong>Latency:</strong>
+                <span>{{ data.latency }} ms</span>
+            </div>
+            <div class="data-item">
+                <strong>Jitter:</strong>
+                <span>{{ data.jitter }} ms</span>
+            </div>
+            <div class="data-item">
+                <strong>Packet Loss:</strong>
+                <span>{{ data.packet_loss }} %</span>
+            </div>
+        {% else %}
+            <p>Loading data...</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    .dashboard-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    h1 {
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .data-container {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+    }
+    .data-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    .data-item:last-child {
+        border-bottom: none;
+    }
+    .data-item strong {
+        color: #4CAF50;
+    }
+    .data-item span {
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
